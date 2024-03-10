@@ -39,7 +39,7 @@ def parse_and_insert_xml(file_path):
         success = influxdb_handler.insert_data(data_points, filename)
         return success  # Return success or failure directly
     except Exception as e:
-        # Log any exceptions
+        
         print(f"Error parsing and inserting data from {file_path}: {e}")
         return False  # Return False in case of any exceptions
 
