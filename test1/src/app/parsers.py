@@ -2,7 +2,7 @@ import os
 import xml.etree.ElementTree as ET
 from app.influxdb_handler import InfluxDBHandler
 
-# Create a single instance of InfluxDBHandler
+
 influxdb_handler = InfluxDBHandler()
 
 def extract_counters(xml_file):
