@@ -36,10 +36,10 @@ class InfluxDBHandler:
 
     def insert_data(self, data_points, filename):
         try:
-            # Check if data_points is iterable
+            
             iter(data_points)
         except TypeError:
-            # Handle the case where data_points is not iterable
+            
             print(f"No valid data points in file '{filename}'. Skipping insertion.")
             return False
         
@@ -62,7 +62,7 @@ class InfluxDBHandler:
                 for data_point in data_points
             ]
             
-            # Write points using JSON body
+            
             self.client.write_points(json_body)
             print(f"Data from file '{filename}' inserted successfully.")
             self.inserted_files.add(filename)
@@ -73,7 +73,7 @@ class InfluxDBHandler:
             return False
 
     def update_processed_files(self, filename):
-        # Update processed files in a file
+        
         with open(Config.PROCESSED_FILES_PATH, "a") as file:
             file.write(filename + '\n')
 
