@@ -9,7 +9,6 @@ class Config:
     SFTP_PORT = 22
     SFTP_USERNAME = 'sftp'
     SFTP_PASSWORD = '130613'
-    SFTP_COLLECTION_DIRECTORY = '/home/sftp/sftp_collection'
+    SFTP_COLLECTION_DIRECTORY = '/home/sftp/sftp_collection'    
     
-    # Add the path to the file where processed filenames will be stored
     PROCESSED_FILES_PATH = '/home/vagrant/processed_files'
