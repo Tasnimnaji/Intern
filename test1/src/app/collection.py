@@ -3,6 +3,9 @@ import pysftp
 from app.config import Config
 
 def collect_xml_files():
+    """
+    Collect XML files from SFTP server.
+    """
     try:
         xml_files = []
 
