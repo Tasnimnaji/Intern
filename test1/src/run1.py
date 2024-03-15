@@ -1,4 +1,7 @@
-#Flask
+"""
+This module contains the main entry point for the application
+"""
+
 import sys
 from app.views import app
 
