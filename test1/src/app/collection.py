@@ -1,9 +1,9 @@
-import pysftp
+import os
 from app.config import Config
 
 def collect_xml_files():
     """
-    Collect XML files from SFTP server.
+    Collect XML files from the SFTP server.
     """
     try:
         xml_files = []
@@ -18,6 +18,6 @@ def collect_xml_files():
             xml_files = sftp.listdir()
 
         return xml_files
-    except Exception as e:
-        print(f"Error collecting XML files: {e}")
+    except Exception as ex:
+        print(f"Error collecting XML files: {ex}")
         return []
