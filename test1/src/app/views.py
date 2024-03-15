@@ -1,4 +1,3 @@
-# views.py
 from flask import Flask, jsonify
 import os
 from app.parsers import parse_and_insert_xml
@@ -11,6 +10,9 @@ influxdb_handler = InfluxDBHandler()
 
 @app.route('/test1', methods=['GET', 'POST'])
 def parse_and_insert():
+    """
+    Parse and insert XML files into InfluxDB.
+    """
     inserted_count = 0
     not_inserted_count = 0
     total_files = 0
