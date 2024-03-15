@@ -1,4 +1,7 @@
 class Config:
+    """
+    Configuration parameters.
+    """
     INFLUXDB_HOST = '192.168.33.10'
     INFLUXDB_PORT = 8086
     INFLUXDB_USERNAME = 'TasnimNaji'
