@@ -1,5 +1,7 @@
-from app.views import app  # pylint: disable=C0413
+#Flask
 import sys
+from app.views import app
+
 sys.path.append('.')
 
 if __name__ == '__main__':
