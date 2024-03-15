@@ -77,8 +77,8 @@ class InfluxDBHandler:
             self.inserted_files.add(filename)
             self.update_processed_files(filename)  # Update processed files
             return True
-        except Exception as e:
-            print(f"Error inserting data from file '{filename}': {e}")
+        except Exception as ex:
+            print(f"Error inserting data from file '{filename}': {ex}")
             return False
 
     def update_processed_files(self, filename):
