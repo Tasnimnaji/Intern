@@ -1,4 +1,3 @@
-import os
 from influxdb import InfluxDBClient
 from app.config import Config
 
