@@ -3,6 +3,9 @@ from app.config import Config
 import os
 
 class InfluxDBHandler:
+    """
+    Handler for InfluxDB operations.
+    """
     def __init__(self):
         self.client = InfluxDBClient(
             host=Config.INFLUXDB_HOST,
@@ -14,6 +17,9 @@ class InfluxDBHandler:
         self.inserted_files = self.load_processed_files()
 
     def load_processed_files(self):
+        """
+        Load processed files from a file.
+        """
         processed_files = set()
         try:
             with open(Config.PROCESSED_FILES_PATH, "r") as file:
@@ -24,6 +30,9 @@ class InfluxDBHandler:
         return processed_files
 
     def get_specific_fields(self, meas_type):
+        """
+        Get specific fields from InfluxDB based on meas_type.
+        """
         query = f'SELECT "r_p" FROM "MME" WHERE "measType" = \'{meas_type}\''
         result = self.client.query(query)
         data_points = []
@@ -35,6 +44,9 @@ class InfluxDBHandler:
         return data_points
 
     def insert_data(self, data_points, filename):
+        """
+        Insert data points into InfluxDB.
+        """
         try:
             iter(data_points)
         except TypeError:
@@ -70,5 +82,8 @@ class InfluxDBHandler:
             return False
 
     def update_processed_files(self, filename):
+        """
+        Update processed files list.
+        """
         with open(Config.PROCESSED_FILES_PATH, "a") as file:
             file.write(filename + '\n')
