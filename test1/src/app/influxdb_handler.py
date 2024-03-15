@@ -1,6 +1,6 @@
+import os
 from influxdb import InfluxDBClient
 from app.config import Config
-import os
 
 class InfluxDBHandler:
     """
@@ -31,7 +31,7 @@ class InfluxDBHandler:
 
     def get_specific_fields(self, meas_type):
         """
-        Get specific fields from InfluxDB based on meas_type.
+        Get specific fields from InfluxDB.
         """
         query = f'SELECT "r_p" FROM "MME" WHERE "measType" = \'{meas_type}\''
         result = self.client.query(query)
@@ -45,7 +45,7 @@ class InfluxDBHandler:
 
     def insert_data(self, data_points, filename):
         """
-        Insert data points into InfluxDB.
+        Insert data into InfluxDB.
         """
         try:
             iter(data_points)
@@ -83,7 +83,7 @@ class InfluxDBHandler:
 
     def update_processed_files(self, filename):
         """
-        Update processed files list.
+        Update processed files.
         """
         with open(Config.PROCESSED_FILES_PATH, "a") as file:
             file.write(filename + '\n')
