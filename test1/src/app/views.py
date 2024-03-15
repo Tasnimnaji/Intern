@@ -35,5 +35,3 @@ def parse_and_insert():
         "inserted_count": inserted_count,
         "not_inserted_count": not_inserted_count
     })
-
-
