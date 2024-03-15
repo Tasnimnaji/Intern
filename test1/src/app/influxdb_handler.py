@@ -36,10 +36,8 @@ class InfluxDBHandler:
 
     def insert_data(self, data_points, filename):
         try:
-            
             iter(data_points)
         except TypeError:
-            
             print(f"No valid data points in file '{filename}'. Skipping insertion.")
             return False
         
@@ -62,7 +60,6 @@ class InfluxDBHandler:
                 for data_point in data_points
             ]
             
-            
             self.client.write_points(json_body)
             print(f"Data from file '{filename}' inserted successfully.")
             self.inserted_files.add(filename)
@@ -73,7 +70,5 @@ class InfluxDBHandler:
             return False
 
     def update_processed_files(self, filename):
-        
         with open(Config.PROCESSED_FILES_PATH, "a") as file:
             file.write(filename + '\n')
-
