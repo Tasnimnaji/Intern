@@ -2,10 +2,12 @@ import os
 import xml.etree.ElementTree as ET
 from app.influxdb_handler import InfluxDBHandler
 
-
 influxdb_handler = InfluxDBHandler()
 
 def extract_counters(xml_file):
+    """
+    Extract counters from XML file.
+    """
     tree = ET.parse(xml_file)
     root = tree.getroot()
 
@@ -33,6 +35,9 @@ def extract_counters(xml_file):
     return data_points
 
 def parse_and_insert_xml(file_path):
+    """
+    Parse and insert XML data into InfluxDB.
+    """
     try:
         data_points = extract_counters(file_path)
         filename = os.path.basename(file_path)
