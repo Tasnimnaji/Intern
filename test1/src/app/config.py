@@ -1,6 +1,6 @@
 class Config:
     """
-    Configuration parameters.
+    Configuration settings.
     """
     INFLUXDB_HOST = '192.168.33.10'
     INFLUXDB_PORT = 8086
@@ -13,5 +13,4 @@ class Config:
     SFTP_USERNAME = 'sftp'
     SFTP_PASSWORD = '130613'
     SFTP_COLLECTION_DIRECTORY = '/home/sftp/sftp_collection'    
-    
     PROCESSED_FILES_PATH = '/home/vagrant/processed_files'
