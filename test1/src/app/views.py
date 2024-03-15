@@ -1,5 +1,5 @@
-from flask import Flask, jsonify
 import os
+from flask import Flask, jsonify
 from app.parsers import parse_and_insert_xml
 from app.config import Config
 from app.influxdb_handler import InfluxDBHandler
@@ -28,7 +28,7 @@ def parse_and_insert():
                     not_inserted_count += 1
                 total_files += 1
 
-    except Exception as e:
+    except Exception:
         return jsonify({"error": "An error occurred"}), 500
 
     return jsonify({
