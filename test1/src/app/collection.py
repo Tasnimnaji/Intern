@@ -1,4 +1,3 @@
-import os
 import pysftp
 from app.config import Config
 
