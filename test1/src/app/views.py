@@ -11,7 +11,7 @@ influxdb_handler = InfluxDBHandler()
 @app.route('/test1', methods=['GET', 'POST'])
 def parse_and_insert():
     """
-    Parse and insert XML files into InfluxDB.
+    Route for parsing and inserting XML data.
     """
     inserted_count = 0
     not_inserted_count = 0
