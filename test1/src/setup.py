@@ -1,7 +1,8 @@
 import os
 import datetime  
-from setuptools import setup, find_packages
 import subprocess
+from setuptools import setup, find_packages
+
 
 
 # Get the absolute path to the directory containing setup.py
