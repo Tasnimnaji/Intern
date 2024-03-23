@@ -1,7 +1,7 @@
 import os
-import datetime
 import subprocess
 from setuptools import setup, find_packages
+
 
 # Get the absolute path to the directory containing setup.py
 base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -10,21 +10,17 @@ base_dir = os.path.dirname(os.path.abspath(__file__))
 requirements_file = os.path.join(base_dir, 'requirements.txt')
 
 # Read the contents of requirements.txt for dependencies
-with open(requirements_file) as f:
+with open(requirements_file, encoding='utf-8') as f:
     requirements = f.read().splitlines()
 
+# Define a function to generate the snapshot version
 def generate_snapshot_version():
-    """
-    Generate a snapshot version based on the current timestamp.
-    """
     now = datetime.datetime.now()
     version = now.strftime("%Y%m%d%H%M%S")
     return version + "-SNAPSHOT"
 
+# Define the upload_to_nexus function
 def upload_to_nexus():
-    """
-    Upload the package to Nexus.
-    """
     nexus_url = 'http://192.168.33.10:8081/repository/app/'
     username = 'admin'
     password = 'nexus'
@@ -33,10 +29,10 @@ def upload_to_nexus():
     snapshot_version = generate_snapshot_version()
 
     # Update version in setup.py dynamically
-    with open('setup.py', 'r') as file:
+    with open('setup.py', 'r', encoding='utf-8') as file:
         setup_content = file.read()
     setup_content = setup_content.replace("version='1.0.0.dev0'", f"version='{snapshot_version}'")
-    with open('setup.py', 'w') as file:
+    with open('setup.py', 'w', encoding='utf-8') as file:
         file.write(setup_content)
 
     # Command to create the source distribution package
