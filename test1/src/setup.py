@@ -13,14 +13,18 @@ requirements_file = os.path.join(base_dir, 'requirements.txt')
 with open(requirements_file) as f:
     requirements = f.read().splitlines()
 
-# Define a function to generate the snapshot version
 def generate_snapshot_version():
+    """
+    Generate a snapshot version based on the current timestamp.
+    """
     now = datetime.datetime.now()
     version = now.strftime("%Y%m%d%H%M%S")
     return version + "-SNAPSHOT"
 
-# Define the upload_to_nexus function
 def upload_to_nexus():
+    """
+    Upload the package to Nexus.
+    """
     nexus_url = 'http://192.168.33.10:8081/repository/app/'
     username = 'admin'
     password = 'nexus'
