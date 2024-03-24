@@ -3,7 +3,6 @@ import subprocess
 import datetime
 from setuptools import setup, find_packages
 
-
 def generate_snapshot_version():
     """
     Generate a snapshot version based on the current date and time.
@@ -13,7 +12,6 @@ def generate_snapshot_version():
     now = datetime.datetime.now()
     version = now.strftime("%Y%m%d%H%M%S")
     return version + "-SNAPSHOT"
-
 
 def upload_to_nexus():
     """
@@ -37,10 +35,12 @@ def upload_to_nexus():
     upload_command = ['twine', 'upload', '--repository-url', nexus_url, '-u', username, '-p', password, '--skip-existing', 'dist/*']
     subprocess.run(upload_command, check=True)
 
+# Read the requirements from requirements.txt
+with open('requirements.txt') as f:
+    requirements = f.read().splitlines()
 
 if os.getenv('UPLOAD_PACKAGE') == '1':
     upload_to_nexus()
-
 
 setup(
     name='test1',
